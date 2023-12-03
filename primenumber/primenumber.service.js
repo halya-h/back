@@ -24,7 +24,7 @@ class PrimeService {
                 if (message.type === 'progress') {
                     onProgress({ ...message, id });
                 } else if (message.type === 'result') {
-                    resolve({ ...message, id });
+                    resolve({ ...message, id, primeCount: message.primeCount });
                     this.cleanUpWorker(id);
                 }
             });

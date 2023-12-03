@@ -96,10 +96,10 @@ const app = express()
 const pool = require('./database')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+const primeRouter = require('./primenumber/primeRouter');
 app.use(cors())
 app.use(express.json())
-
+app.use('/api', primeRouter);
 app.get('/users', async (req, res) => {
   try {
     const users = await pool.query('SELECT * FROM users');
